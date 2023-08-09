@@ -6,8 +6,8 @@ const app = express();
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
+    host: '35.225.77.201',
+    user: 'funtek',
     password: '123456',
     database: 'myfirst',
 });
