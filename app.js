@@ -1,15 +1,17 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import mysql from 'mysql';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: '35.225.77.201',
-    user: 'funtek',
-    password: '123456',
-    database: 'myfirst',
+    host: process.env.DB_URL || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'users'
 });
 
 app.post('/api/users', async(req, res) => {
